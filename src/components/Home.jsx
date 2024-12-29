@@ -1,11 +1,14 @@
-import { DiVim } from "react-icons/di";
 import Hero from "./Hero";
+import Premium from "./Premium";
+import PremiumTable from "./PremiumTable";
 
 const Home = () => {
   return (
     <>
-      <div className="sm:flex sm:justify-center bg-black">
+      <div className="bg-black">
         <Hero></Hero>
+        <PremiumTable></PremiumTable>
+        <Premium></Premium>
       </div>
     </>
   );
