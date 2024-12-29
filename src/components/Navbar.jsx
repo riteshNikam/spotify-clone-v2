@@ -10,7 +10,6 @@ const Navbar = () => {
     const newState = !isOpen;
     setIsOpen(newState);
   };
-  console.log(isOpen);
 
   return (
     <>
@@ -27,7 +26,7 @@ const Navbar = () => {
 
           <div>
             <button
-              className="text-white text-xl sm:hidden"
+              className="text-white text-3xl sm:hidden"
               onClick={handleHamburgerMenu}
             >
               <GiHamburgerMenu></GiHamburgerMenu>

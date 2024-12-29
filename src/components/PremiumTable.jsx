@@ -5,7 +5,7 @@ import SpotifyWhite from "../assets/Spotify_White.png";
 const PremiumTable = () => {
   return (
     <>
-      <div className="bg-black text-white px-2 sm:flex sm:flex-col sm:items-center pb-10">
+      <div className="bg-black text-white px-2 hidden sm:flex sm:flex-col sm:items-center pb-10">
         <center>
           <h1 className="text-4xl font-bold">Experience the difference</h1>
           <div className="w-full text-lg font-medium self-center">

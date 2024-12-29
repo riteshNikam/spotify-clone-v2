@@ -3,7 +3,12 @@ import { NavLink } from "react-router-dom";
 const NavBarMenu = () => {
   return (
     <>
-      <a className="block mb-3 sm:mx-4 sm:mb-0 font-semibold">Premium</a>
+      <NavLink
+        className="block mb-3 sm:mx-4 sm:mb-0 font-semibold"
+        to="premium"
+      >
+        Premium
+      </NavLink>
       <a className="block mb-3 sm:mx-4 sm:mb-0 font-semibold">Support</a>
       <a className="block mb-3 sm:mx-4 sm:mb-0 font-semibold">Download</a>
       <NavLink
