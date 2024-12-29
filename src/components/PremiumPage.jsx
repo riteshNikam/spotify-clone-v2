@@ -3,7 +3,7 @@ import PremiumCards from "./PremiumCards";
 const PremiumPage = () => {
   return (
     <>
-      <div className="">
+      <div className="px-2 sm:px-44 bg-black">
         <PremiumCards></PremiumCards>
       </div>
     </>

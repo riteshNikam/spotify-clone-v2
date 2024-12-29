@@ -8,32 +8,31 @@ const PremiumCard = ({
   finalPrice,
   description,
   buttonText,
-  color,
 }) => {
-  console.log(color);
-
   return (
     <>
       <div className="bg-[#333333] text-white w-[18rem] mx-5 my-4">
-        <div className="border-b-2">
+        <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           <div className="flex items-center h-[4rem] px-3">
             <img
               src={SpotifyWhite}
               alt="spotify white logo"
               className="w-[2rem]"
             />
-            <span className="text-md ml-1 font-extrabold">Premium</span>
+            <span className="text-md ml-2 font-extrabold">Premium</span>
           </div>
         </div>
 
         <div className="p-3">
-          <h1 className={`text-4xl font-extrabold text-green-500`}>{header}</h1>
+          <h1 className={`text-4xl font-extrabold text-green-500 py-3`}>
+            {header}
+          </h1>
           <h1 className="text-sm font-bold">
             &#8377;{initialPrice} for {initialPricePeriod} months
           </h1>
 
-          <h1 className="text-sm font-bold mb-2 text-gray-400">
-            &#8377;{finalPrice}/- month after
+          <h1 className="text-sm font-normal mb-2 text-gray-400">
+            <em>&#8377;{finalPrice}/- month after</em>
           </h1>
         </div>
 

@@ -148,7 +148,7 @@ const SignUpPage = () => {
 
             <div className="flex justify-center">
               <button
-                className="dark:text-white px-3 py-2 w-full mt-2 dark:bg-green-700 text-lg font-semibold hover:bg-green-800"
+                className="dark:text-white px-3 py-2 w-full mt-2 dark:bg-green-500 text-lg font-semibold hover:bg-green-700"
                 type="submit"
               >
                 Register
