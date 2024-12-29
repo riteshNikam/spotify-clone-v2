@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-black py-5 sm:flex sm:justify-center">
+      <nav className="bg-black py-5 sm:flex sm:justify-center border-b-2 border-green-700">
         <div className="w-full flex justify-between items-center px-4 sm:container sm:flex sm:justify-between sm:items-center">
           <NavLink to="/">
             <div className="flex items-center">
