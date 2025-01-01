@@ -15,8 +15,7 @@ const NavBarMenu = () => {
       </NavLink>
       <a className="block mb-3 sm:mx-4 sm:mb-0 font-semibold">Support</a>
       <a className="block mb-3 sm:mx-4 sm:mb-0 font-semibold">Download</a>
-      <NavLink
-        // className="block w-fit sm:mx-4 font-semibold border rounded-2xl px-3 py-1 hover:bg-white hover:text-black"
+      {/* <NavLink
         className={({ isActive }) => {
           return isActive
             ? "block w-fit sm:mx-4 font-semibold border-green-500 rounded-2xl px-3 py-1 bg-green-500  text-black"
@@ -25,6 +24,14 @@ const NavBarMenu = () => {
         to="/signup"
       >
         Register
+      </NavLink> --> Register button is not required using Spotify Auth for logging in. */}
+      <NavLink
+        className={
+          "block w-fit sm:mx-4 font-semibold border rounded-2xl px-3 py-1 hover:bg-green-500 hover:border-green-500 hover:text-black"
+        }
+        to="/loginspotify"
+      >
+        Login With Spotify
       </NavLink>
     </>
   );
