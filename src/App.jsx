@@ -7,38 +7,39 @@ import PremiumPage from "./components/PremiumPage";
 import LoginWithSpotify from "./components/LoginWithSpotify";
 import { useEffect } from "react";
 import { getTokenFromUrl } from "./spotify";
-import SpotifyWebApi from "spotify-web-api-js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPlaylists, setToken, setUser } from "./store/spotifySlice";
 import PlaylistPage from "./components/PlaylistPage";
 
-const spotify = new SpotifyWebApi();
-
 const App = () => {
   const dispatch = useDispatch();
+  const { spotify } = useSelector((state) => state.userReducer);
+  const { token } = useSelector((state) => state.spotifyReducer);
 
   useEffect(() => {
-    const hash = getTokenFromUrl();
-    window.location.hash = "";
-    const _token = hash.access_token;
-    if (_token) {
-      dispatch(
-        setToken({
-          token: _token,
-        })
-      );
-      spotify.setAccessToken(_token);
-      spotify.getMe().then((data) => {
-        dispatch(setUser({ user: data }));
-      });
-      spotify.getUserPlaylists().then((data) => {
+    if (!token) {
+      const hash = getTokenFromUrl();
+      window.location.hash = "";
+      const _token = hash.access_token;
+      if (_token) {
         dispatch(
-          setPlaylists({
-            playlists: data.items,
-            defaultId: data.items[0].id,
+          setToken({
+            token: _token,
           })
         );
-      });
+        spotify.setAccessToken(_token);
+        spotify.getMe().then((data) => {
+          dispatch(setUser({ user: data }));
+        });
+        spotify.getUserPlaylists().then((data) => {
+          dispatch(
+            setPlaylists({
+              playlists: data.items,
+              defaultId: data.items[0].id,
+            })
+          );
+        });
+      }
     }
   }, []);
 
@@ -65,5 +66,4 @@ const App = () => {
   );
 };
 
-export { spotify };
 export default App;

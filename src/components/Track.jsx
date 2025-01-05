@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { spotify } from "../App";
+import { useSelector } from "react-redux";
 
 const Track = ({ trackId, index }) => {
+  const { spotify } = useSelector((state) => state.userReducer);
   const [trackItem, setTrackItem] = useState({});
 
   useEffect(() => {
@@ -38,8 +39,10 @@ const Track = ({ trackId, index }) => {
 
   return (
     <>
-      <tr className="h-12">
-        <td scope="row">{index + 1}</td>
+      <tr className="h-12 hover:bg-[#555]">
+        <td scope="row">
+          <h1 className="ps-4">{index + 1}</h1>
+        </td>
         <td>
           <div className="flex items-center">
             <img
