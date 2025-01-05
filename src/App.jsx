@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route, useHref } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import SignUpPage from "./components/SignUpPage";
 import LogInPage from "./components/LogInPage";
@@ -8,13 +8,13 @@ import LoginWithSpotify from "./components/LoginWithSpotify";
 import { useEffect } from "react";
 import { getTokenFromUrl } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
-import { useSelector, useDispatch } from "react-redux";
-import { setToken, setUser } from "./store/spotifySlice";
+import { useDispatch } from "react-redux";
+import { setPlaylists, setToken, setUser } from "./store/spotifySlice";
+import PlaylistPage from "./components/PlaylistPage";
 
 const spotify = new SpotifyWebApi();
 
 const App = () => {
-  const spotifyState = useSelector((state) => state.spotifyReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,11 +28,17 @@ const App = () => {
         })
       );
       spotify.setAccessToken(_token);
-      dispatch(
-        setUser({
-          user: "Rohan Nikam",
-        })
-      );
+      spotify.getMe().then((data) => {
+        dispatch(setUser({ user: data }));
+      });
+      spotify.getUserPlaylists().then((data) => {
+        dispatch(
+          setPlaylists({
+            playlists: data.items,
+            defaultId: data.items[0].id,
+          })
+        );
+      });
     }
   }, []);
 
@@ -49,10 +55,15 @@ const App = () => {
             path="/loginspotify"
             element={<LoginWithSpotify></LoginWithSpotify>}
           ></Route>
+          <Route
+            path="/playlists"
+            element={<PlaylistPage></PlaylistPage>}
+          ></Route>
         </Routes>
       </div>
     </>
   );
 };
 
+export { spotify };
 export default App;
