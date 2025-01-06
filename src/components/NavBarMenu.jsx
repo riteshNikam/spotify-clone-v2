@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 const NavBarMenu = () => {
   const { token, user } = useSelector((state) => state.spotifyReducer);
-  console.log(user);
 
   return (
     <>

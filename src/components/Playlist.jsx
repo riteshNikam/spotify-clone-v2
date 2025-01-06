@@ -1,4 +1,4 @@
-import Track from "./Track";
+import Tracks from "./Tracks";
 
 const Playlist = ({ playlistItem }) => {
   return (
@@ -27,7 +27,7 @@ const Playlist = ({ playlistItem }) => {
           </thead>
           <tbody>
             {playlistItem.tracks.items.map((value, index) => {
-              return <Track trackId={value.track.id} index={index}></Track>;
+              return <Tracks trackId={value.track.id} index={index}></Tracks>;
             })}
           </tbody>
         </table>

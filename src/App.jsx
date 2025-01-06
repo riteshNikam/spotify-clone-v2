@@ -10,6 +10,7 @@ import { getTokenFromUrl } from "./spotify";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlaylists, setToken, setUser } from "./store/spotifySlice";
 import PlaylistPage from "./components/PlaylistPage";
+import Track from "./components/Track";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ const App = () => {
             path="/playlists"
             element={<PlaylistPage></PlaylistPage>}
           ></Route>
+          <Route path="/track" element={<Track></Track>}></Route>
         </Routes>
       </div>
     </>
